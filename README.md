@@ -55,4 +55,14 @@ The following code is adding then specification of the URL path and indicates wh
     }
 ```
 
+### Adding the Service layer
+
+In this section, I add another midlle layer which is called Service or it is called Business layer. In this layer the data are been transformed into another format. Or coverign the need of the response to then end user.
+
+```
+    @Service
+    public class OrderServiceImpl implements OrderService
+```
+
+
 

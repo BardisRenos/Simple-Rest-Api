@@ -64,5 +64,49 @@ In this section, I add another midlle layer which is called Service or it is cal
     public class OrderServiceImpl implements OrderService
 ```
 
+In this part. The method **getOrders()** transform the data from **Order** Entity object into **OrderDTO** object.
+
+```
+    public List<OrderDTO> getOrders() {
+        return orderRepository.findAll().stream().map(OrderMapper::convertEntityToDTO).collect(Collectors.toList());
+    }
+```
+
+### Adding the DTO Mapper layer
+
+This part is needed to tranform the Entity into DTO class.
+
+```
+    @Service
+    public class OrderMapper {
+
+        public static OrderDTO convertEntityToDTO(Order order) {
+            ModelMapper modelMapper = new ModelMapper();
+            return modelMapper.map(order, OrderDTO.class);
+        }
+    }
+```
+
+### Adding the DTO object 
+
+This part creates an object that will return to the end user. Therefore it is needed to be build with the specification(entities) that is needed.
+
+```
+    @Getter
+    @Setter
+    @Builder
+    @RequiredArgsConstructor
+    @AllArgsConstructor
+    public class OrderDTO {
+
+        private Integer orderId;
+        private String productName;
+        private String orderType;
+        private Integer quantity;
+        private Integer price;
+        private String category;
+
+    }
+```
 
 

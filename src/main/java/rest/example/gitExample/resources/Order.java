@@ -16,7 +16,6 @@ import java.io.Serializable;
 public class Order implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_id", updatable = false, nullable = false)
     private Integer orderId;
     @NotNull
@@ -26,8 +25,11 @@ public class Order implements Serializable {
     @Column(name = "order_type")
     private String orderType;
     @NotNull
+    @Column(name = "quantity")
+    private Integer quantity;
+    @NotNull
     @Column(name = "price")
-    private String price;
+    private Integer price;
     @NotNull
     @Column(name = "category")
     private String category;

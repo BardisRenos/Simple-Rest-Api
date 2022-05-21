@@ -17,14 +17,13 @@ import java.io.Serializable;
 public class Client implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "client_id", updatable = false, nullable = false)
     private Integer clientId;
     @NotNull
-    @Column(name = "company_name")
+    @Column(name = "client_name")
     private String clientName;
     @NotNull
-    @Column(name = "company_last_name")
+    @Column(name = "client_last_name")
     private String clientLastName;
     @NotNull
     @Column(name = "address")

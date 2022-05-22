@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rest.example.gitExample.dao.ClientRepository;
 import rest.example.gitExample.dto.ClientDTO;
+import rest.example.gitExample.exception.ClientNotFoundException;
 import rest.example.gitExample.mappers.ClientMapper;
 import rest.example.gitExample.service.declaration.ClientService;
 
@@ -20,5 +21,11 @@ public class ClientServiceImpl implements ClientService {
     public List<ClientDTO> getClients() {
         return clientRepository.findAll().stream().map(ClientMapper::convertEntityToDTO).collect(Collectors.toList());
     }
+
+    @Override
+    public ClientDTO getClientById(Integer id) throws ClientNotFoundException {
+        return clientRepository.findById(id).map(ClientMapper::convertEntityToDTO).orElseThrow(()-> new ClientNotFoundException(String.format("The Client was not found with ID: %s", id)));
+    }
+
 
 }

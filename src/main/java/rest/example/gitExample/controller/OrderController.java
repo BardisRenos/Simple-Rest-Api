@@ -2,11 +2,9 @@ package rest.example.gitExample.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rest.example.gitExample.dto.OrderDTO;
+import rest.example.gitExample.exception.OrderNotFoundException;
 import rest.example.gitExample.service.OrderServiceImpl;
 
 import java.util.List;
@@ -22,5 +20,11 @@ public class OrderController {
     @ResponseStatus(HttpStatus.OK)
     public List<OrderDTO> getAllOrders() {
         return orderServiceImpl.getOrders();
+    }
+
+    @GetMapping(value = "order")
+    @ResponseStatus(HttpStatus.OK)
+    public OrderDTO getOrderById(@RequestParam(value = "id") Integer id) throws OrderNotFoundException {
+        return orderServiceImpl.getOrderById(id);
     }
 }

@@ -173,7 +173,15 @@ The second response comes also form the image below.
 
 ### Docker
 
-In order to run the application. It is possible to run the application on Docker. 
+In order to run the application. It is possible to run the application on Docker. By using Docker, can use your own environment. For example,
+the first line of this Dockerfile, shows the JDK that will use. The second line, indicates in which port will be exposed.
+
+```Docker
+    FROM openjdk:11.0.15-slim
+    EXPOSE 8081
+    ADD target/spring-boot-application-docker.jar spring-boot-application-docker.jar
+    ENTRYPOINT ["java", "-jar", "/spring-boot-application-docker.jar"]
+```
 
 FIrst of all need to build the image. With this command you can build the docker image with a specific (Docker) image name.
 

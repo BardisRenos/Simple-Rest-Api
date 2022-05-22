@@ -16,14 +16,14 @@ As a first step. I have to create the Resources class which are the representati
 
 Below it is a small sample of the database table of **orders**. The code here creates the Class **Order** into Java code and on top of that there is the `@Table` annotation with the name of the database table on the schema part. 
 
-```
+```java
     @Table(name = "orders")
     public class Order implements Serializable 
 ```
 
 In this part the code builds the **primary key** and the entity or the **product name** of the database table into Java environment.
 
-```
+```java
     @Id
     @Column(name = "order_id", updatable = false, nullable = false)
     private Integer orderId;
@@ -37,7 +37,7 @@ In this part the code builds the **primary key** and the entity or the **product
 
 In order to have an entry point of the URL. It is needed to have a REST Controller class. In the case I develop and URL of `http://localhost:8081/api/v1/` then main path  
 
-```
+```java
     @RestController
     @RequestMapping("/api/v1/")
     @RequiredArgsConstructor
@@ -47,7 +47,7 @@ In order to have an entry point of the URL. It is needed to have a REST Controll
 The following code is adding then specification of the URL path and indicates what the REST Api wants to retrieve. The full URL is : 
 `http://localhost:8081/api/v1/orders`. In this case the URL indicates the retrieve all orser that are in the database.
 
-```
+```java
     @GetMapping(value = "orders")
     @ResponseStatus(HttpStatus.OK)
     public List<OrderDTO> getAllOrders() {
@@ -59,14 +59,14 @@ The following code is adding then specification of the URL path and indicates wh
 
 In this section, I add another midlle layer which is called Service or it is called Business layer. In this layer the data are been transformed into another format. Or coverign the need of the response to then end user.
 
-```
+```java
     @Service
     public class OrderServiceImpl implements OrderService
 ```
 
 In this part. The method **getOrders()** transform the data from **Order** Entity object into **OrderDTO** object.
 
-```
+```java
     public List<OrderDTO> getOrders() {
         return orderRepository.findAll().stream().map(OrderMapper::convertEntityToDTO).collect(Collectors.toList());
     }
@@ -76,7 +76,7 @@ In this part. The method **getOrders()** transform the data from **Order** Entit
 
 This part is needed to tranform the Entity into DTO class.
 
-```
+```java
     @Service
     public class OrderMapper {
 
@@ -91,7 +91,7 @@ This part is needed to tranform the Entity into DTO class.
 
 This part creates an object that will return to the end user. Therefore it is needed to be build with the specification(entities) that is needed.
 
-```
+```java
     @Getter
     @Setter
     @Builder
@@ -109,4 +109,15 @@ This part creates an object that will return to the end user. Therefore it is ne
     }
 ```
 
+### Adding the Repository or DAO Layer
+
+This layer is rensposible to apply the query to the database. 
+
+```java
+    @Repository
+    public interface OrderRepository extends JpaRepository<Order, Integer> {
+
+
+    }
+```
 

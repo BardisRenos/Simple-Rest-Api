@@ -156,6 +156,14 @@ The first annotation will generate a constructor with no parameters. Where the s
 
 In order to test/check the RestApi it is needed to use Postman application. On the postman I added the URL in order to receive the sesponse data from the database.
 
+```
+http://localhost:8081/api/v1/clients
+```
+And the response from the image shows what the response has. 
+
+<p align="center"> 
+<img src="https://github.com/BardisRenos/simple-restapi/blob/main/Images/clientsResponse.png" width="350" height="450" style=centerme>
+</p>
 
 
 

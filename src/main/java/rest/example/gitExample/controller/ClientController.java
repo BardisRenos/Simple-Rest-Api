@@ -2,11 +2,9 @@ package rest.example.gitExample.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rest.example.gitExample.dto.ClientDTO;
+import rest.example.gitExample.exception.ClientNotFoundException;
 import rest.example.gitExample.service.ClientServiceImpl;
 
 import java.util.List;
@@ -24,4 +22,9 @@ public class ClientController {
         return clientServiceImpl.getClients();
     }
 
+    @GetMapping(value = "client")
+    @ResponseStatus(HttpStatus.OK)
+    public ClientDTO getClientById(@RequestParam(value = "id") Integer id) throws ClientNotFoundException {
+        return clientServiceImpl.getClientById(id);
+    }
 }

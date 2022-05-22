@@ -144,3 +144,12 @@ Lastly, this annotation builds an object. The @Builder annotationlets you automa
     @Builder
 ```
 
+```java
+    @NoArgsConstructor
+    @AllArgsConstructor
+```
+
+
+### Using Postman 
+
+

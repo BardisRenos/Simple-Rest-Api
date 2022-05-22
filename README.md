@@ -4,7 +4,7 @@
 In this repository will demostrate how to build REST API's in Java as programming language and Spring Boot as a framework. 
 
 This repository is using:
-1. Java Vesrtion 11
+1. Java Vertion 11
 2. Spring Boot 2.7
 3. Lombok library
 4. JpaData
@@ -171,4 +171,12 @@ The second response comes also form the image below.
 <img src="https://github.com/BardisRenos/simple-restapi/blob/main/Images/responseOrders.png" width="350" height="450" style=centerme>
 </p>
 
+### Docker
+
+In order to run the application. It is possible to run the application on Docker. 
+
+
+```Docker
+    docker build -t spring_application .
+```
 

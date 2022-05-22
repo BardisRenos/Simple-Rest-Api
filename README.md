@@ -35,7 +35,7 @@ In this part the code builds the **primary key** and the entity or the **product
 
 ### Adding the Controller layer
 
-In order to have an entry point of the URL. It is needed to have a REST Controller class. In the case I develop and URL of `http://localhost:8081/api/v1/` then main path  
+In order to have an entry point of the URL. It is needed to have a REST Controller class. In the case I develop and URL of `http://localhost:8081/api/v1/` then main path.
 
 ```java
     @RestController
@@ -119,5 +119,17 @@ This layer is rensposible to apply the query to the database. In the below examp
 
 
     }
+```
+
+### Lombok library 
+
+Lombok is an additional library. The (project) Lombok is an annotation-based Java library that allows you to reduce boilerplate code. Lombok offers various annotations aimed at replacing Java code that is well known for being boilerplate, repetitive, or tedious to write. 
+
+For example. Some annotations help to avoid to write code that is needed to return values from the class.
+
+```java
+    @Getter
+    @Setter
+    @Builder
 ```
 

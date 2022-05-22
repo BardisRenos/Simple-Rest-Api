@@ -144,6 +144,8 @@ Lastly, this annotation builds an object. The @Builder annotationlets you automa
     @Builder
 ```
 
+The first annotation will generate a constructor with no parameters. Where the second annotation, generates a constructor with 1 parameter for each field in your class.
+
 ```java
     @NoArgsConstructor
     @AllArgsConstructor
@@ -151,5 +153,9 @@ Lastly, this annotation builds an object. The @Builder annotationlets you automa
 
 
 ### Using Postman 
+
+In order to test/check the RestApi it is needed to use Postman application. On the postman I added the URL in order to receive the sesponse data from the database.
+
+
 
 

@@ -1,4 +1,4 @@
-# simple-restapi
+# Simple-RestApi's
 
 ### Info
 In this repository will demostrate how to build REST API's in Java as programming language and Spring Boot as a framework. 
@@ -111,7 +111,7 @@ This part creates an object that will return to the end user. Therefore it is ne
 
 ### Adding the Repository or DAO Layer
 
-This layer is rensposible to apply the query to the database. 
+This layer is rensposible to apply the query to the database. In the below example. There is extention of the **JpaRepository** which means can be able to apply queries into the database. The most valueable info here that, it is impotant to indicates the actual type of the database table and then the primary key type. In our case, the primary key is Integer type.
 
 ```java
     @Repository

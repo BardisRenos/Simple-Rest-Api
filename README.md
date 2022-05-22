@@ -125,11 +125,22 @@ This layer is rensposible to apply the query to the database. In the below examp
 
 Lombok is an additional library. The (project) Lombok is an annotation-based Java library that allows you to reduce boilerplate code. Lombok offers various annotations aimed at replacing Java code that is well known for being boilerplate, repetitive, or tedious to write. 
 
-For example. Some annotations help to avoid to write code that is needed to return values from the class.
+For example. Some annotations help to avoid to write code that is needed to return values from the class. The first annotation is used to return all values of the class. 
 
 ```java
     @Getter
+```
+
+The second annotation sets the given value to each entity. 
+
+```java
     @Setter
-    @Builder
+ ```
+ 
+Lastly, this annotation builds an object. The @Builder annotationlets you automatically produce the code required to have your class be instantiable with code.
+ 
+ 
+ ```java
+ @Builder
 ```
 

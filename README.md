@@ -165,5 +165,10 @@ And the response from the image shows what the response has.
 <img src="https://github.com/BardisRenos/simple-restapi/blob/main/Images/clientsResponse.png" width="350" height="450" style=centerme>
 </p>
 
+The second response comes also form the image below.
+
+<p align="center"> 
+<img src="https://github.com/BardisRenos/simple-restapi/blob/main/Images/responseOrders.png" width="350" height="450" style=centerme>
+</p>
 
 

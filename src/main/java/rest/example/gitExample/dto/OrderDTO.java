@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class OrderDTO {
 
+    private Integer id;
     private Integer orderId;
     private String productName;
     private String orderType;

@@ -22,10 +22,10 @@ public class dbInsertion {
 
         return args-> {
             List<Order> orders = new ArrayList<>(Arrays.asList(
-                    new Order(123, "Make Up", "Card", 1, 20, "Beauty Product"),
-                    new Order(124, "Lipstick", "Cash", 1, 30, "Beauty Product"),
-                    new Order(125, "Laptop", "Cash", 1, 1000, "Electronics"),
-                    new Order(126, "Towels", "Card", 2, 10, "House Items")
+                    new Order(1, 123, "Make Up", "Card", 1, 20, "Beauty Product"),
+                    new Order(2, 124, "Lipstick", "Cash", 1, 30, "Beauty Product"),
+                    new Order(3, 125, "Laptop", "Cash", 1, 1000, "Electronics"),
+                    new Order(4, 126, "Towels", "Card", 2, 10, "House Items")
             ));
 
             List<Client> clients = new ArrayList<>(Arrays.asList(

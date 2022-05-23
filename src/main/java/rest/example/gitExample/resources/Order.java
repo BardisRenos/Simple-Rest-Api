@@ -16,7 +16,10 @@ import java.io.Serializable;
 public class Order implements Serializable {
 
     @Id
-    @Column(name = "order_id", updatable = false, nullable = false)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Integer id;
+    @NotNull
+    @Column(name = "order_id")
     private Integer orderId;
     @NotNull
     @Column(name = "product_name")

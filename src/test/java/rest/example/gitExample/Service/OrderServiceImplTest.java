@@ -50,10 +50,10 @@ class OrderServiceImplTest {
 
         List<OrderDTO> orderDTOs = orderServiceImpl.getOrders();
         assertAll("Return a list of OrderDTO",
-                ()->assertEquals(2, listOfOrders.size()),
-                ()->assertEquals("Pencil", listOfOrders.get(0).getProductName()),
-                ()->assertEquals("cash", listOfOrders.get(0).getOrderType()),
-                ()->assertEquals("Eraser", listOfOrders.get(1).getProductName()));
+                ()->assertEquals(2, orderDTOs.size()),
+                ()->assertEquals("Pencil", orderDTOs.get(0).getProductName()),
+                ()->assertEquals("cash", orderDTOs.get(0).getOrderType()),
+                ()->assertEquals("Eraser", orderDTOs.get(1).getProductName()));
     }
 
     @Test

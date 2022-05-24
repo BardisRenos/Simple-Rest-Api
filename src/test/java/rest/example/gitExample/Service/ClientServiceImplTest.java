@@ -18,8 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -61,6 +60,27 @@ class ClientServiceImplTest {
     }
 
     @Test
+    void getClients_ShouldReturnListObjects_NotValidReturn() {
+        Client client1 = Client.builder().clientId(1).clientName("Renos").clientLastName("Bardis")
+                .address("78 Bd du President").phoneNumber("0211548445").build();
+
+        Client client2 = Client.builder().clientId(2).clientName("Nikos").clientLastName("Papas")
+                .address("18 Bd du President").phoneNumber("0777748445").build();
+
+        List<Client> listOfClients = new ArrayList<>(Arrays.asList(client1, client2));
+
+        when(clientRepository.findAll()).thenReturn(listOfClients);
+
+        List<ClientDTO> clientDTOList = clientServiceImpl.getClients();
+        assertAll("Return a list of OrderDTO",
+                ()->assertNotEquals(3, clientDTOList.size()),
+                ()->assertNotEquals("George", clientDTOList.get(0).getClientName()),
+                ()->assertNotEquals("Papadopoulos", clientDTOList.get(0).getClientLastName()),
+                ()->assertNotEquals("Giannis", clientDTOList.get(1).getClientName()),
+                ()->assertNotEquals("Mitrou", clientDTOList.get(0).getClientLastName()));
+    }
+
+    @Test
     void getClientById_ShouldReturnObjects_ValidReturn() throws ClientNotFoundException {
         Client client = Client.builder().clientId(1).clientName("Renos").clientLastName("Bardis")
                 .address("78 Bd du President").phoneNumber("0211548445").build();
@@ -71,5 +91,15 @@ class ClientServiceImplTest {
         assertAll("Return a list of OrderDTO",
                 ()->assertEquals("Renos", clientDTO.getClientName()),
                 ()->assertEquals("Bardis", clientDTO.getClientLastName()));
+    }
+
+    @Test
+    void getClientById_ShouldReturnObjects_NotValidReturn() throws ClientNotFoundException {
+        Client client = Client.builder().clientId(1).clientName("Renos").clientLastName("Bardis")
+                .address("78 Bd du President").phoneNumber("0211548445").build();
+
+        when(clientRepository.findById(1)).thenReturn(java.util.Optional.ofNullable(client));
+
+        assertThrows(ClientNotFoundException.class, ()->clientServiceImpl.getClientById(2));
     }
 }

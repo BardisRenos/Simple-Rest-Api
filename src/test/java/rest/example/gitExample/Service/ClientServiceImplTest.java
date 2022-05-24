@@ -1,6 +1,5 @@
 package rest.example.gitExample.Service;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,7 +55,7 @@ class ClientServiceImplTest {
                 ()->assertEquals("Renos", clientDTOList.get(0).getClientName()),
                 ()->assertEquals("Bardis", clientDTOList.get(0).getClientLastName()),
                 ()->assertEquals("Nikos", clientDTOList.get(1).getClientName()),
-                ()->assertEquals("Papas", clientDTOList.get(0).getClientLastName()));
+                ()->assertEquals("Papas", clientDTOList.get(1).getClientLastName()));
     }
 
     @Test
@@ -94,7 +93,7 @@ class ClientServiceImplTest {
     }
 
     @Test
-    void getClientById_ShouldReturnObjects_NotValidReturn() throws ClientNotFoundException {
+    void getClientById_ShouldReturnObjects_NotValidReturn() {
         Client client = Client.builder().clientId(1).clientName("Renos").clientLastName("Bardis")
                 .address("78 Bd du President").phoneNumber("0211548445").build();
 

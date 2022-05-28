@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import rest.example.gitExample.dto.ClientDTO;
+import rest.example.gitExample.dto.ClientOrdersDTO;
 import rest.example.gitExample.exception.ClientNotFoundException;
 import rest.example.gitExample.service.ClientServiceImpl;
 
@@ -26,5 +27,17 @@ public class ClientController {
     @ResponseStatus(HttpStatus.OK)
     public ClientDTO getClientById(@RequestParam(value = "id") Integer id) throws ClientNotFoundException {
         return clientServiceImpl.getClientById(id);
+    }
+
+    @GetMapping(value = "client/clientLastName/{clientLastName}")
+    @ResponseStatus(HttpStatus.OK)
+    public ClientOrdersDTO getClientWithOrders(@PathVariable(value = "clientLastName") String clientLastName) throws ClientNotFoundException {
+        return clientServiceImpl.getClientOrdersByLastName(clientLastName);
+    }
+
+    @GetMapping(value = "client/lastName")
+    @ResponseStatus(HttpStatus.OK)
+    public ClientDTO getClientByLastName(@RequestParam(value = "clientLastName") String clientLastName) throws ClientNotFoundException {
+        return clientServiceImpl.getClientByLastName(clientLastName);
     }
 }

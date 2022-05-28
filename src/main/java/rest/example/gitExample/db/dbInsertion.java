@@ -34,6 +34,10 @@ public class dbInsertion {
                     new Client(3, "John", "Pappas", "75 Rue du Cannes 06010 Cannes", "0895123222")
             ));
 
+            Client client = clients.get(0);
+
+            client.setOrders(orders);
+
             orderRepository.saveAll(orders);
             clientRepository.saveAll(clients);
         };

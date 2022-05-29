@@ -18,6 +18,10 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleOrderNotFound(Exception ex) {
         return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
-    
+
+    @org.springframework.web.bind.annotation.ExceptionHandler({StoreNotFoundException.class})
+    public ResponseEntity<Object> handleStoreNotFound(Exception ex) {
+        return new ResponseEntity<>(ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND);
+    }
     
 }

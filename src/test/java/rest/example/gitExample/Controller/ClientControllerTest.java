@@ -15,23 +15,22 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import rest.example.gitExample.controller.ClientController;
 import rest.example.gitExample.dto.ClientDTO;
-import rest.example.gitExample.dto.OrderDTO;
 import rest.example.gitExample.service.ClientServiceImpl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = ClientController.class)
-public class ClientControllerTest {
+class ClientControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

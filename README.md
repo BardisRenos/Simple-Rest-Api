@@ -194,3 +194,30 @@ The second command need to type, is to execute the image into docker container.
 ```Docker
     docker run -p 8081:8081 spring_application
 ```
+
+### Relationships between Entities
+
+When you want to join one or more tables. Then need to indicate the table with the correct annotation. 
+
+For example:
+
+In this case, each Client entity may has many Orders. Therefore, adding a foreign key of client_id.
+
+```java
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "oc_fk", referencedColumnName = "client_id")
+    private List<Order> orders;
+```
+
+In this cas, Many Clients have many (difference) Orders. Hence, adding the pivot table in order to make the matching between the entities of Order and Client.
+
+```java
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "client_orders",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id"))
+    private List<Order> ordersByClients;
+```
+
+

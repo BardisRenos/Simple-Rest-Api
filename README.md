@@ -220,4 +220,6 @@ In this cas, Many Clients have many (difference) Orders. Hence, adding the pivot
     private List<Order> ordersByClients;
 ```
 
-
+<p align="center"> 
+<img src="https://github.com/BardisRenos/Simple-RestApi/blob/main/Images/Screenshot/from/202022-05-30/2014-42-29.png" width="350" height="450" style=centerme>
+</p>

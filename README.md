@@ -221,5 +221,5 @@ In this cas, Many Clients have many (difference) Orders. Hence, adding the pivot
 ```
 
 <p align="center"> 
-<img src="https://github.com/BardisRenos/Simple-RestApi/blob/main/Images/Screenshot/from/202022-05-30/2014-42-29.png" width="350" height="450" style=centerme>
+<img src="https://github.com/BardisRenos/Simple-Rest-Api/blob/main/Images/response_Many_to_Many.png" width="350" height="450" style=centerme>
 </p>

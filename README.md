@@ -137,7 +137,7 @@ The second annotation sets the given value to each entity.
     @Setter
  ```
  
-Lastly, this annotation builds an object. The @Builder annotationlets you automatically produce the code required to have your class be instantiable with code.
+Lastly, this annotation builds an object. The @Builder annotation lets you automatically produce the code required to have your class be instantiable with code.
  
  
  ```java

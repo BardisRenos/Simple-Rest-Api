@@ -32,7 +32,7 @@ public class StoreController {
 
     @GetMapping(value = "storeName")
     @ResponseStatus(HttpStatus.OK)
-    public StoreOrdersDTO getStoreById(@RequestParam(value = "name") String name) throws StoreNotFoundException {
+    public StoreOrdersDTO getStoreByStoreName(@RequestParam(value = "name") String name) throws StoreNotFoundException {
         return storeServiceimpl.getStoreAndOrders(name.toLowerCase(Locale.ROOT));
     }
 }

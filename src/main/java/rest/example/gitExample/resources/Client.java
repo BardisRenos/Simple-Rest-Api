@@ -1,5 +1,6 @@
 package rest.example.gitExample.resources;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -37,9 +38,16 @@ public class Client implements Serializable {
     @JoinColumn(name = "oc_fk", referencedColumnName = "client_id")
     private List<Order> orders;
 
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "client_orders",
+            joinColumns = @JoinColumn(name = "client_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id"))
+    private List<Order> ordersByClients;
+
     /**
      * Default constructor
-     * @param clientId The id of a Client
+     * @param clientId The id of a Client database table
      * @param clientName The first name of a Client
      * @param clientLastName The last name of a Client
      * @param address The address of a Client

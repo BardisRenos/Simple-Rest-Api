@@ -41,7 +41,8 @@ public class dbInsertion {
             List<Client> clients = new ArrayList<>(Arrays.asList(
                     new Client(1, "Renos", "Bardis", "78 Bd du President Wilson, 06061 Juan Les Pins", "06161616161"),
                     new Client(2, "Nikos", "Papadopoulos", "65 Rue du Nice 06000 Nice", "0845885222"),
-                    new Client(3, "John", "Pappas", "75 Rue du Cannes 06010 Cannes", "0895123222")
+                    new Client(3, "John", "Pappas", "75 Rue du Cannes 06010 Cannes", "0895123222"),
+                    new Client(4, "Francois", "Demi", "23 Rue du San Rafael 06020 SR", "85565123222")
             ));
 
             Store store1 = new Store(1, 123, "Athens-Store", "Athens", "Greece");
@@ -52,6 +53,12 @@ public class dbInsertion {
             store3.setOrders(orders.subList(10, orders.size()));
 
             List<Store> stores = Arrays.asList(store1, store2, store3);
+
+            Order order1 = orders.get(2);
+            Order order2 = orders.get(6);
+
+            order1.setClients(clients.subList(0, 2));
+            order2.setClients(clients.subList(2, clients.size()));
 
             Client client1 = clients.get(0);
             Client client2 = clients.get(1);

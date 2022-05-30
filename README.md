@@ -209,6 +209,11 @@ In this case, each Client entity may has many Orders. Therefore, adding a foreig
     private List<Order> orders;
 ```
 
+<p align="center"> 
+<img src="https://github.com/BardisRenos/Simple-Rest-Api/blob/main/Images/response_Many_to_Many.png" width="350" height="450" style=centerme>
+</p>
+
+
 In this cas, Many Clients have many (difference) Orders. Hence, adding the pivot table in order to make the matching between the entities of Order and Client.
 
 ```java
@@ -220,6 +225,4 @@ In this cas, Many Clients have many (difference) Orders. Hence, adding the pivot
     private List<Order> ordersByClients;
 ```
 
-<p align="center"> 
-<img src="https://github.com/BardisRenos/Simple-Rest-Api/blob/main/Images/response_Many_to_Many.png" width="350" height="450" style=centerme>
-</p>
+

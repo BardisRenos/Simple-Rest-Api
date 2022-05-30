@@ -209,6 +209,8 @@ In this case, each Client entity may has many Orders. Therefore, adding a foreig
     private List<Order> orders;
 ```
 
+This image has the result of the one-to-many 
+
 <p align="center"> 
 <img src="https://github.com/BardisRenos/Simple-Rest-Api/blob/main/Images/response_Many_to_Many.png" width="350" height="450" style=centerme>
 </p>

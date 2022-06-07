@@ -7,6 +7,7 @@ import rest.example.gitExample.dto.StoreDTO;
 import rest.example.gitExample.dto.StoreOrdersDTO;
 import rest.example.gitExample.exception.StoreNotFoundException;
 import rest.example.gitExample.mappers.StoreMapper;
+import rest.example.gitExample.resources.Store;
 import rest.example.gitExample.service.declaration.StoreService;
 
 import java.util.List;
@@ -31,5 +32,12 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public StoreOrdersDTO getStoreAndOrders(String name) throws StoreNotFoundException {
         return storeRepository.findStoreAndOrders(name).map(StoreMapper::convertEntityToStoreOrderDTO).orElseThrow(()-> new StoreNotFoundException(String.format("The store is not found with the store city %s", name)));
+    }
+
+    @Override
+    public StoreDTO saveStore(StoreDTO storeDTO) {
+        Store store = StoreMapper.convertDTOtoEntity(storeDTO);
+        store = storeRepository.save(store);
+        return StoreMapper.convertEntityToDTO(store);
     }
 }

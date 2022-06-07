@@ -8,6 +8,7 @@ import rest.example.gitExample.dto.OrderClientsDTO;
 import rest.example.gitExample.dto.OrderDTO;
 import rest.example.gitExample.exception.OrderNotFoundException;
 import rest.example.gitExample.mappers.OrderMapper;
+import rest.example.gitExample.resources.Order;
 import rest.example.gitExample.service.declaration.OrderService;
 
 import java.util.List;
@@ -33,6 +34,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderClientsDTO> getOrdersAndClients(String category) {
         return orderRepository.findOrdersByClients(category).stream().map(OrderMapper::convertEntityToOrderClientDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public OrderDTO saveOrder(OrderDTO orderDTO) {
+        Order order = OrderMapper.convertDTOtoEntity(orderDTO);
+        order = orderRepository.save(order);
+        return OrderMapper.convertEntityToDTO(order);
     }
 
 }

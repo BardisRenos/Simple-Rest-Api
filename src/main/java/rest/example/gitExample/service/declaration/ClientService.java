@@ -12,4 +12,5 @@ public interface ClientService {
     ClientDTO getClientById(Integer id) throws ClientNotFoundException;
     ClientOrdersDTO getClientOrdersByLastName(String clientLastName) throws ClientNotFoundException;
     ClientDTO getClientByLastName(String lastName) throws ClientNotFoundException;
+    ClientDTO saveClient(ClientDTO clientDTO);
 }

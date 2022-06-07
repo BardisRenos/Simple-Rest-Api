@@ -14,6 +14,12 @@ public class StoreMapper {
         return modelMapper.map(store, StoreDTO.class);
     }
 
+    public static Store convertDTOtoEntity(StoreDTO storeDTO) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(storeDTO, Store.class);
+    }
+
+
     public static StoreOrdersDTO convertEntityToStoreOrderDTO(Store store) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(store, StoreOrdersDTO.class);

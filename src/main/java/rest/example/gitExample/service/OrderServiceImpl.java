@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import rest.example.gitExample.dao.OrderRepository;
-import rest.example.gitExample.dto.OrderClientsDTO;
 import rest.example.gitExample.dto.OrderDTO;
 import rest.example.gitExample.exception.OrderNotFoundException;
 import rest.example.gitExample.mappers.OrderMapper;
@@ -30,12 +29,6 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO getOrderById(Integer id) throws OrderNotFoundException {
         return orderRepository.findById(id).map(OrderMapper::convertEntityToDTO).orElseThrow(()-> new OrderNotFoundException(String.format("The order not found with ID : %s ", id)));
     }
-
-    @Override
-    public List<OrderClientsDTO> getOrdersAndClients(String category) {
-        return orderRepository.findOrdersByClients(category).stream().map(OrderMapper::convertEntityToOrderClientDTO).collect(Collectors.toList());
-    }
-
     @Override
     public OrderDTO saveOrder(OrderDTO orderDTO) {
         Order order = OrderMapper.convertDTOtoEntity(orderDTO);

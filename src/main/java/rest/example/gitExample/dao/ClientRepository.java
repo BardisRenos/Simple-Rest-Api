@@ -1,5 +1,6 @@
 package rest.example.gitExample.dao;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -7,7 +8,7 @@ import rest.example.gitExample.resources.Client;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
-
+@Qualifier("Client")
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Integer> {
 

@@ -19,6 +19,7 @@ import java.util.List;
 public class Client implements Serializable {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "client_id", updatable = false, nullable = false)
     private Integer clientId;
     @NotNull

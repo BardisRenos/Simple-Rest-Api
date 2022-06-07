@@ -7,7 +7,7 @@ This repository is using:
 1. Java Version 11
 2. Spring Boot 2.7
 3. Lombok library
-4. JpaData
+4. JPA Data
 5. Docker
 
 ### Adding the Resources layer

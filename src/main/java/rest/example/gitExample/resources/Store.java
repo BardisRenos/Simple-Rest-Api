@@ -17,6 +17,7 @@ import java.util.List;
 public class Store implements Serializable {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     private Integer id;
     @NotNull

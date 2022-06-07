@@ -60,14 +60,6 @@ public class dbInsertion {
             order1.setClients(clients.subList(0, 2));
             order2.setClients(clients.subList(2, clients.size()));
 
-            Client client1 = clients.get(0);
-            Client client2 = clients.get(1);
-            Client client3 = clients.get(2);
-
-            client1.setOrders(orders.subList(0, 4));
-            client2.setOrders(orders.subList(4, 8));
-            client3.setOrders(orders.subList(8, orders.size()));
-
             orderRepository.saveAll(orders);
             clientRepository.saveAll(clients);
             storeRepository.saveAll(stores);

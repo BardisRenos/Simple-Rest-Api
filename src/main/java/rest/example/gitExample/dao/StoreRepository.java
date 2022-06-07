@@ -1,5 +1,6 @@
 package rest.example.gitExample.dao;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import rest.example.gitExample.resources.Store;
 
 import java.util.Optional;
-
+@Qualifier("Store")
 @Repository
 public interface StoreRepository extends JpaRepository<Store, Integer> {
 

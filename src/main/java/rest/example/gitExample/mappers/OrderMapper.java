@@ -18,6 +18,11 @@ public class OrderMapper {
         return modelMapper.map(order, OrderDTO.class);
     }
 
+    public static Order convertDTOtoEntity(OrderDTO orderDTO) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(orderDTO, Order.class);
+    }
+
     public static OrderClientsDTO convertEntityToOrderClientDTO(Order order) {
         OrderClientsDTO orderClientsDTO =  new OrderClientsDTO();
         List<ClientDTO> clientList;

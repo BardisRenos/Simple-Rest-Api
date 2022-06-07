@@ -8,6 +8,7 @@ import rest.example.gitExample.dto.ClientOrdersDTO;
 import rest.example.gitExample.exception.ClientNotFoundException;
 import rest.example.gitExample.service.ClientServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -39,5 +40,11 @@ public class ClientController {
     @ResponseStatus(HttpStatus.OK)
     public ClientDTO getClientByLastName(@RequestParam(value = "clientLastName") String clientLastName) throws ClientNotFoundException {
         return clientServiceImpl.getClientByLastName(clientLastName);
+    }
+
+    @PostMapping(value = "client")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ClientDTO saveClient (@Valid @RequestBody ClientDTO clientDTO) {
+        return clientServiceImpl.saveClient(clientDTO);
     }
 }

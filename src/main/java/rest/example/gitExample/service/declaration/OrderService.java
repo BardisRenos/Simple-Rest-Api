@@ -11,4 +11,6 @@ public interface OrderService {
     List<OrderDTO> getOrders();
     OrderDTO getOrderById(Integer id) throws OrderNotFoundException;
     List<OrderClientsDTO> getOrdersAndClients(String category);
+
+    OrderDTO saveOrder(OrderDTO orderDTO);
 }

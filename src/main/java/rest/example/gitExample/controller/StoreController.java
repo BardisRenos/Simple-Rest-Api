@@ -8,6 +8,7 @@ import rest.example.gitExample.dto.StoreOrdersDTO;
 import rest.example.gitExample.exception.StoreNotFoundException;
 import rest.example.gitExample.service.StoreServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,5 +35,11 @@ public class StoreController {
     @ResponseStatus(HttpStatus.OK)
     public StoreOrdersDTO getStoreByStoreName(@RequestParam(value = "name") String name) throws StoreNotFoundException {
         return storeServiceimpl.getStoreAndOrders(name.toLowerCase(Locale.ROOT));
+    }
+
+    @PostMapping(value = "addStore")
+    @ResponseStatus(HttpStatus.CREATED)
+    public StoreDTO saveStore(@Valid @RequestBody StoreDTO storeDTO) {
+        return storeServiceimpl.saveStore(storeDTO);
     }
 }

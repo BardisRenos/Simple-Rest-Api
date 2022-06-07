@@ -12,4 +12,5 @@ public interface StoreService {
     StoreDTO getStoreById(Integer id) throws StoreNotFoundException;
     List<StoreDTO> getAllStores();
     StoreOrdersDTO getStoreAndOrders(String storeName) throws StoreNotFoundException;
+    StoreDTO saveStore(StoreDTO storeDTO);
 }

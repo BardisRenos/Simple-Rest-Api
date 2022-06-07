@@ -3,11 +3,13 @@ package rest.example.gitExample.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import rest.example.gitExample.dto.ClientDTO;
 import rest.example.gitExample.dto.OrderClientsDTO;
 import rest.example.gitExample.dto.OrderDTO;
 import rest.example.gitExample.exception.OrderNotFoundException;
 import rest.example.gitExample.service.OrderServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,5 +36,11 @@ public class OrderController {
     @ResponseStatus(HttpStatus.OK)
     public List<OrderClientsDTO> getOrdersWithClients(@RequestParam(value = "category") String category) {
         return orderServiceImpl.getOrdersAndClients(category.toLowerCase(Locale.ROOT));
+    }
+
+    @PostMapping(value = "addOrder")
+    @ResponseStatus(HttpStatus.CREATED)
+    public OrderDTO saveClient (@Valid @RequestBody OrderDTO orderDTO) {
+        return orderServiceImpl.saveOrder(orderDTO);
     }
 }

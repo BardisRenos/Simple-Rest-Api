@@ -12,4 +12,9 @@ public class ClientMapper {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(client, ClientDTO.class);
     }
+
+    public static Client convertDTOToEntity(ClientDTO clientDTO) {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(clientDTO, Client.class);
+    }
 }

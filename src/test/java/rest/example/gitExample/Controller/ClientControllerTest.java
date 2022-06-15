@@ -47,7 +47,7 @@ class ClientControllerTest {
     ObjectMapper om = new ObjectMapper();
 
     @BeforeEach
-    public void setup() {
+    public void setUp() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context).build();
         this.clientController = new ClientController(this.clientServiceImpl);
     }

@@ -13,11 +13,21 @@ import java.util.stream.Collectors;
 @Service
 public class OrderMapper {
 
+    /**
+     * Convert an Order entity into OrderDTO
+     * @param order The Order entity class
+     * @return A OrderDTO object
+     */
     public static OrderDTO convertEntityToDTO(Order order) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(order, OrderDTO.class);
     }
 
+    /**
+     * Convert an OrderDTO object into Order entity
+     * @param orderDTO The OrderDTO
+     * @return A Order entity
+     */
     public static Order convertDTOtoEntity(OrderDTO orderDTO) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(orderDTO, Order.class);

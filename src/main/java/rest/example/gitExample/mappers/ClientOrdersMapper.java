@@ -8,6 +8,11 @@ import rest.example.gitExample.resources.Client;
 @Service
 public class ClientOrdersMapper {
 
+    /**
+     * Convert Client entity into ClientOrdersDTO object
+     * @param client The client entity
+     * @return A ClientOrdersDTO object
+     */
     public static ClientOrdersDTO convertEntityToDTO(Client client) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(client, ClientOrdersDTO.class);

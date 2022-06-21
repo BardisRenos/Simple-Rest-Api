@@ -5,6 +5,9 @@ import rest.example.gitExample.exception.OrderNotFoundException;
 
 import java.util.List;
 
+/**
+ * Order Service Interface
+ */
 public interface OrderService {
 
     List<OrderDTO> getOrders();

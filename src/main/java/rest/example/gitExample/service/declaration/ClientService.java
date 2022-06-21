@@ -6,6 +6,9 @@ import rest.example.gitExample.exception.ClientNotFoundException;
 
 import java.util.List;
 
+/**
+ * Client Service Interface
+ */
 public interface ClientService {
 
     List<ClientDTO> getClients();

@@ -7,6 +7,9 @@ import rest.example.gitExample.exception.StoreNotFoundException;
 
 import java.util.List;
 
+/**
+ * Order Service Interface
+ */
 public interface StoreService {
 
     StoreDTO getStoreById(Integer id) throws StoreNotFoundException;

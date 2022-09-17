@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build'){
             steps {
-                sh './mvnw clean install'
+                sh './mvnw clean install -DskipTests'
             }
         }
         stage('Tests'){

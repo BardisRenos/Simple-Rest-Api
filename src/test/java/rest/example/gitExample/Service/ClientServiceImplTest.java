@@ -88,8 +88,8 @@ class ClientServiceImplTest {
 
         ClientDTO clientDTO = clientServiceImpl.getClientById(1);
         assertAll("Return a list of OrderDTO",
-                ()->assertEquals("Renos1", clientDTO.getClientName()),
-                ()->assertEquals("Bardis1", clientDTO.getClientLastName()));
+                ()->assertEquals("Renos", clientDTO.getClientName()),
+                ()->assertEquals("Bardis", clientDTO.getClientLastName()));
     }
 
     @Test

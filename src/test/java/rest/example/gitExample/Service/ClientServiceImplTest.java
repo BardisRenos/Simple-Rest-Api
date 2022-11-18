@@ -13,7 +13,6 @@ import rest.example.gitExample.exception.ClientNotFoundException;
 import rest.example.gitExample.resources.Client;
 import rest.example.gitExample.service.ClientServiceImpl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,7 +44,7 @@ class ClientServiceImplTest {
         Client client2 = Client.builder().clientId(2).clientName("Nikos").clientLastName("Papas")
                 .address("18 Bd du President").phoneNumber("0777748445").build();
 
-        List<Client> listOfClients = new ArrayList<>(Arrays.asList(client1, client2));
+        List<Client> listOfClients = Arrays.asList(client1, client2);
 
         when(clientRepository.findAll()).thenReturn(listOfClients);
 
@@ -66,7 +65,7 @@ class ClientServiceImplTest {
         Client client2 = Client.builder().clientId(2).clientName("Nikos").clientLastName("Papas")
                 .address("18 Bd du President").phoneNumber("0777748445").build();
 
-        List<Client> listOfClients = new ArrayList<>(Arrays.asList(client1, client2));
+        List<Client> listOfClients = Arrays.asList(client1, client2);
 
         when(clientRepository.findAll()).thenReturn(listOfClients);
 

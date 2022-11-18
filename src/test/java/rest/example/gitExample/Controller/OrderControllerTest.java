@@ -17,7 +17,6 @@ import rest.example.gitExample.controller.OrderController;
 import rest.example.gitExample.dto.OrderDTO;
 import rest.example.gitExample.service.OrderServiceImpl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -59,7 +58,7 @@ class OrderControllerTest {
         OrderDTO order2 = OrderDTO.builder().id(2).orderId(1).productName("Eraser")
                 .orderType("cash").quantity(1).price(2).category("Office").build();
 
-        List<OrderDTO> listOfOrders = new ArrayList<>(Arrays.asList(order1, order2));
+        List<OrderDTO> listOfOrders = Arrays.asList(order1, order2);
 
         when(orderServiceImpl.getOrders()).thenReturn(listOfOrders);
 

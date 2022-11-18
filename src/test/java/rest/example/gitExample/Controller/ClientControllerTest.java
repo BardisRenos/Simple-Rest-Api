@@ -17,9 +17,9 @@ import rest.example.gitExample.controller.ClientController;
 import rest.example.gitExample.dto.ClientDTO;
 import rest.example.gitExample.service.ClientServiceImpl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -59,7 +59,7 @@ class ClientControllerTest {
         ClientDTO clientDTO2 = ClientDTO.builder().clientName("Nick").clientLastName("Conway")
                 .address("57 Boulevard du Cannes").phoneNumber("05989444").build();
 
-        List<ClientDTO>  listOfClients = new ArrayList<>(Arrays.asList(clientDTO1, clientDTO2));
+        List<ClientDTO>  listOfClients = Arrays.asList(clientDTO1, clientDTO2);
 
         when(clientServiceImpl.getClients()).thenReturn(listOfClients);
 
